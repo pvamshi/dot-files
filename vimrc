@@ -30,10 +30,14 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 "Plugin 'vim-scripts/mayansmoke'
 Plugin 'luochen1990/rainbow'
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/vim-powerline'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'morhetz/gruvbox'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/syntastic'
+
+Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -74,6 +78,7 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 set t_Co=256
 set background=dark
 colorscheme gruvbox
+
 
 set hlsearch
 set incsearch
@@ -122,3 +127,34 @@ set noswapfile
 set laststatus=2
 
 set wildignore+=*.pyc
+
+
+set hidden "suppress warnings for changed buffers 
+
+let g:airline#extensions#tabline#enabled = 1
+
+nnoremap <LEFT> :bp<CR>
+nnoremap <RIGHT> :bn<CR>
+
+"" Status line
+""set statusline=   " clear the statusline for when vimrc is reloaded
+"set statusline+=%-3.3n\                      " buffer number
+"set statusline+=%{fugitive#statusline()}     " Git status 
+"set statusline+=%f\                          " file name
+"set statusline+=%h%m%r%w                     " flags
+"set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
+"set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
+"set statusline+=%{&fileformat}]              " file format
+"set statusline+=%=                           " right align
+"set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
+"set statusline+=%b,0x%-8B\                   " current char
+"set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+
+"set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
+"set statusline=
+"set statusline+=%<\                       " cut at start
+"set statusline+=%2*[%n%H%M%R%W]%*\        " flags and buf no
+"set statusline+=%-40f\                    " path
+"set statusline+=%=%1*%y%*%*\              " file type
+"set statusline+=%10((%l,%c)%)\            " line and column
+"set statusline+=%P                        " percentage of file
