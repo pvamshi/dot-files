@@ -1,3 +1,5 @@
+
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -35,9 +37,13 @@ Plugin 'jonathanfilip/vim-lucius'
 Plugin 'morhetz/gruvbox'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
 
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'mileszs/ack.vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'rking/ag.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -128,18 +134,20 @@ set laststatus=2
 
 set wildignore+=*.pyc
 
+"suppress warnings for changed buffers
+set hidden
 
-set hidden "suppress warnings for changed buffers 
+" let g:airline#extensions#tabline#enabled = 1 " buffer status in the top
 
-let g:airline#extensions#tabline#enabled = 1
 
 nnoremap <LEFT> :bp<CR>
 nnoremap <RIGHT> :bn<CR>
+"set autochdir "Change the directory to current file automatically
 
 "" Status line
 ""set statusline=   " clear the statusline for when vimrc is reloaded
 "set statusline+=%-3.3n\                      " buffer number
-"set statusline+=%{fugitive#statusline()}     " Git status 
+"set statusline+=%{fugitive#statusline()}     " Git status
 "set statusline+=%f\                          " file name
 "set statusline+=%h%m%r%w                     " flags
 "set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
@@ -158,3 +166,20 @@ nnoremap <RIGHT> :bn<CR>
 "set statusline+=%=%1*%y%*%*\              " file type
 "set statusline+=%10((%l,%c)%)\            " line and column
 "set statusline+=%P                        " percentage of file
+
+nnoremap <leader>1 :buff 1<CR>
+nnoremap <leader>2 :buff 2<CR>
+nnoremap <leader>3 :buff 3<CR>
+nnoremap <leader>4 :buff 4<CR>
+nnoremap <leader>5 :buff 5<CR>
+nnoremap <leader>6 :buff 6<CR>
+nnoremap <leader>7 :buff 7<CR>
+nnoremap <leader>8 :buff 8<CR>
+nnoremap <leader>9 :buff 9<CR>
+nnoremap <leader>; :ls <CR>
+nnoremap <leader>q :bd<CR>
+
+match Error /\s\+$/
+inoremap <leader># #{}<ESC>i
+nnoremap <leader>d ologger.debug "============ line no : <C-r>=line('.')<CR> ============="<ESC>T i
+nnoremap <leader>n :NERDTreeToggle<CR>
