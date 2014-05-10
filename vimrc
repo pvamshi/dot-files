@@ -41,9 +41,14 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
+<<<<<<< HEAD
 Plugin 'mileszs/ack.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'rking/ag.vim'
+=======
+Plugin 'tomtom/tcomment_vim'
+
+>>>>>>> b04ddcc0cc2c820e413e60a42cbcedbc667f2e33
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
