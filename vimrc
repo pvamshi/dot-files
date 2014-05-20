@@ -44,6 +44,12 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'mileszs/ack.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'rking/ag.vim'
+Plugin 'othree/html5.vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -183,3 +189,8 @@ match Error /\s\+$/
 inoremap <leader># #{}<ESC>i
 nnoremap <leader>d ologger.debug "============ line no : <C-r>=line('.')<CR> ============="<ESC>T i
 nnoremap <leader>n :NERDTreeToggle<CR>
+
+:let g:html_indent_inctags = "html,body,head,tbody,td,th,tb,div"
+inoremap <C-CR> <CR><ESC>Oenter
+
+
