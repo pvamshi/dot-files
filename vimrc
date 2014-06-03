@@ -43,8 +43,33 @@ Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mileszs/ack.vim'
 Plugin 'tomtom/tcomment_vim'
+"Ag search " 
 Plugin 'rking/ag.vim'
- All of your Plugins must be added before the following line
+Plugin 'marijnh/tern_for_vim'
+"Rails support
+Plugin 'tpope/vim-rails'
+"Javascript beautifier
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
+
+"Javascript looks nice 
+Plugin 'jelera/vim-javascript-syntax'
+
+"Indent guides
+"Plugin 'nathanaelkane/vim-indent-guides'
+
+"Add brackets automatically 
+Plugin 'Raimondi/delimitMate'
+" Javascript suport"
+" Plugin 'pangloss/vim-javascript'
+" All of your Plugins must be added before the following line
+
+"Colorscheme
+Plugin 'Lokaltog/vim-distinguished'
+
+"indent guides
+" Plugin 'Yggdroot/indentLine'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -83,7 +108,8 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 set t_Co=256
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme distinguished
 
 
 set hlsearch
@@ -100,7 +126,7 @@ autocmd! bufwritepost .vimrc source %
 "Automatic reloading of vimrc
 "augroup AutoReloadVimRC
 "	au!
-	" automatically reload vimrc when it's saved
+" automatically reload vimrc when it's saved
 "	au BufWritePost $MYVIMRC so $MYVIMRC
 "augroup END
 
@@ -140,46 +166,39 @@ set hidden
 " let g:airline#extensions#tabline#enabled = 1 " buffer status in the top
 
 
-nnoremap <LEFT> :bp<CR>
-nnoremap <RIGHT> :bn<CR>
-"set autochdir "Change the directory to current file automatically
-
-"" Status line
-""set statusline=   " clear the statusline for when vimrc is reloaded
-"set statusline+=%-3.3n\                      " buffer number
-"set statusline+=%{fugitive#statusline()}     " Git status
-"set statusline+=%f\                          " file name
-"set statusline+=%h%m%r%w                     " flags
-"set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
-"set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
-"set statusline+=%{&fileformat}]              " file format
-"set statusline+=%=                           " right align
-"set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
-"set statusline+=%b,0x%-8B\                   " current char
-"set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
-
-"set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
-"set statusline=
-"set statusline+=%<\                       " cut at start
-"set statusline+=%2*[%n%H%M%R%W]%*\        " flags and buf no
-"set statusline+=%-40f\                    " path
-"set statusline+=%=%1*%y%*%*\              " file type
-"set statusline+=%10((%l,%c)%)\            " line and column
-"set statusline+=%P                        " percentage of file
-
-nnoremap <leader>1 :buff 1<CR>
-nnoremap <leader>2 :buff 2<CR>
-nnoremap <leader>3 :buff 3<CR>
-nnoremap <leader>4 :buff 4<CR>
-nnoremap <leader>5 :buff 5<CR>
-nnoremap <leader>6 :buff 6<CR>
-nnoremap <leader>7 :buff 7<CR>
-nnoremap <leader>8 :buff 8<CR>
-nnoremap <leader>9 :buff 9<CR>
-nnoremap <leader>; :ls <CR>
 nnoremap <leader>q :bd<CR>
 
 match Error /\s\+$/
 inoremap <leader># #{}<ESC>i
 nnoremap <leader>d ologger.debug "============ line no : <C-r>=line('.')<CR> ============="<ESC>T i
 nnoremap <leader>n :NERDTreeToggle<CR>
+:let g:html_indent_inctags = "html,body,head,tbody,td,th,tb,div"
+set tabstop=2 shiftwidth=2 expandtab
+
+
+"jsbeautify
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+"adds an enter if you are in between {} 
+imap <C-c> <CR><Esc>O
+
+"Folding tutorial 
+"http://smartic.us/2009/04/06/code-folding-in-vim/
+set foldmethod=indent   "fold based on indent
+set foldnestmax=10      "deepest fold is 10 levels
+set foldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
+" `za` - toggles
+" `zc` - closes
+" `zo` - opens
+" `zR` - open all
+" `zM` - close all
