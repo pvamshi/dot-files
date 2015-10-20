@@ -169,8 +169,8 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 set t_Co=256
 set background=dark
 " set background=light
-" colorscheme gruvbox
-colorscheme gotham256
+colorscheme gruvbox
+" colorscheme gotham256
 " colorscheme distinguished
 " colorscheme solarized
 
@@ -253,6 +253,7 @@ autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2
 "adds an enter if you are in between {} 
@@ -276,7 +277,7 @@ set fillchars+=stl:\ ,stlnc:\
 if has("gui_running")
     "    let s:uname = system("uname")
     "    if s:uname == "Darwin\n"
-    set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-Bold\ 9
+    " set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-Bold\ 9
     set guioptions=
     colorscheme solarized
 

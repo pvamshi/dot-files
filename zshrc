@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+#ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,7 +49,7 @@ ZSH=$HOME/.oh-my-zsh
 plugins=(git,mercurial)
 
 # source $ZSH/oh-my-zsh.sh
-source /home/vamshi/installations/common/antigen/antigen.zsh
+source /home/vamshi/conf/dot-files/antigen.zsh
 
 
 
@@ -64,7 +64,8 @@ antigen bundle robbyrussell/oh-my-zsh lib/
 ## Antigen Bundles
 ##
 #
-antigen theme super-simple-hg
+#antigen theme super-simple-hg
+antigen theme theunraveler
 antigen bundle git
 antigen bundle tmuxinator
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -73,7 +74,7 @@ antigen bundle common-aliases
 
 #
 ## For SSH, starting ssh-agent is annoying
-antigen bundle ssh-agent
+#antigen bundle ssh-agent
 #
 ## Node Plugins
 antigen bundle coffee
@@ -154,7 +155,7 @@ export MAVEN_OPTS="-Xms256m -Xmx1024m -XX:PermSize=64m -XX:MaxPermSize=1024m -Dj
 # Set architecture flags
 export ARCHFLAGS="-arch x86_64"
 # Ensure user-installed binaries take precedence
-export JAVA_HOME=/home/vamshi/installations/programming/java/jdk1.7.0_79
+export JAVA_HOME=/home/vamshi/installations/java/jdk1.8.0_60
 export MVN_HOME=/home/vamshi/installations/programming/apache/apache-maven-3.3.3
 export CATALINA_HOME=/home/vamshi/installations/programming/apache/apache-tomcat-7.0.62
 export PATH=/usr/local/bin:~/bin:$PATH:$JAVA_HOME/bin:$MVN_HOME/bin:CATALINA_HOME/bin:
@@ -192,3 +193,4 @@ alias a='ag -i --no-numbers '
 #set local timezone to US for all commands 
 export TZ=America/Los_Angeles
 TERM=xterm
+# export PATH=$PATH:/home/vamshi/installations/node-v4.1.0-linux-arm64/bin
