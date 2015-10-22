@@ -39,7 +39,7 @@ Plugin 'jonathanfilip/vim-lucius'
 Plugin 'morhetz/gruvbox'
 
 "Python plugin
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 
 "Syntax check
 "Plugin 'scrooloose/syntastic'
@@ -66,7 +66,7 @@ Plugin 'rking/ag.vim'
 " Javascript must have 
 " Plugin 'marijnh/tern_for_vim'
 "Rails support
-Plugin 'tpope/vim-rails'
+" Plugin 'tpope/vim-rails'
 "Javascript beautifier ( need both )
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
@@ -110,13 +110,13 @@ Plugin 'whatyouhide/vim-gotham'
 "Plugin 'Lokaltog/vim-easymotion'
 
 "Coffee script support
-Plugin 'kchmck/vim-coffee-script'
+" Plugin 'kchmck/vim-coffee-script'
 
 "Jade support
-Plugin 'digitaltoad/vim-jade'
+" Plugin 'digitaltoad/vim-jade'
 
 "Go support 
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'
 
 " Use [ and ] to perform varios actions 
 "Plugin 'tpope/vim-unimpaired'
@@ -173,6 +173,7 @@ colorscheme gruvbox
 " colorscheme gotham256
 " colorscheme distinguished
 " colorscheme solarized
+" let g:solarized_termcolors=256
 
 
 set hlsearch
