@@ -32,11 +32,9 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-"Plugin 'vim-scripts/mayansmoke'
 Plugin 'luochen1990/rainbow'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'jonathanfilip/vim-lucius'
-Plugin 'morhetz/gruvbox'
 
 "Python plugin
 " Plugin 'davidhalter/jedi-vim'
@@ -91,10 +89,16 @@ Plugin 'Raimondi/delimitMate'
 
 "Colorscheme
 Plugin 'Lokaltog/vim-distinguished'
+Plugin 'vim-scripts/mayansmoke'
+Plugin 'morhetz/gruvbox'
+Plugin 'junegunn/seoul256.vim'
 "solarised 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'whatyouhide/vim-gotham'
 
+
+"html folding and auto complete tags
+Plugin 'sukima/xmledit'
 
 "indent guides
 "Plugin 'Yggdroot/indentLine'
@@ -169,11 +173,21 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 set t_Co=256
 set background=dark
 " set background=light
-colorscheme gruvbox
-" colorscheme gotham256
+" colorscheme gruvbox
+colorscheme gotham256
 " colorscheme distinguished
 " colorscheme solarized
 " let g:solarized_termcolors=256
+" colorscheme mayansmoke
+
+" seoul256 (dark):
+"   Range:   233 (darkest) ~ 239 (lightest)
+"   Default: 237
+" seoul256 (light):
+"   Range:   252 (darkest) ~ 256 (lightest)
+"   Default: 253
+" let g:seoul256_background = 235
+" colo seoul256
 
 
 set hlsearch
@@ -211,9 +225,9 @@ set fo-=t
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set shiftround
 set expandtab
 
@@ -234,8 +248,6 @@ set hidden
 nnoremap <leader>q :bd<CR>
 
 match Error /\s\+$/
-inoremap <leader># #{}<ESC>i
-nnoremap <leader>d ologger.debug "============ line no : <C-r>=line('.')<CR> ============="<ESC>T i
 nnoremap <leader>n :NERDTreeToggle<CR>
 :let g:html_indent_inctags = "html,body,head,tbody,td,th,tb,div"
 
@@ -250,13 +262,13 @@ autocmd FileType jsp noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+" autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+" autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+" autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" autocmd FileType jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2
 "adds an enter if you are in between {} 
 imap <C-c> <CR><Esc>O
 
@@ -306,4 +318,5 @@ nnoremap <silent> <leader>v $a @vamshi<ESC>
 " let g:hound_base_url = "10.23.83.190"
 "let g:hound_port = "6080"
 " let g:hound_repos = "dashboard-calendar-ui"
+let g:ctrlp_custom_ignore = 'node_modules\|dist\|git\|bower_components'
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
