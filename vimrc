@@ -40,7 +40,7 @@ Plugin 'jonathanfilip/vim-lucius'
 " Plugin 'davidhalter/jedi-vim'
 
 "Syntax check
-"Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 
 "Nerd Tree ...
 Plugin 'scrooloose/nerdtree'
@@ -68,6 +68,8 @@ Plugin 'rking/ag.vim'
 "Javascript beautifier ( need both )
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
+" Plugin 'hallettj/jslint.vim'
+
 
 " requirement for js-beautify 
 " Plugin 'michalliu/jsruntime.vim'
@@ -320,3 +322,4 @@ nnoremap <silent> <leader>v $a @vamshi<ESC>
 " let g:hound_repos = "dashboard-calendar-ui"
 let g:ctrlp_custom_ignore = 'node_modules\|dist\|git\|bower_components'
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let $JS_CMD='node'
