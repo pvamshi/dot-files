@@ -1,6 +1,7 @@
 
 
 set nocompatible              " be iMproved, required
+
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -15,7 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -26,32 +27,56 @@ Plugin 'kien/ctrlp.vim'
 "Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
+"===== ZEN HTML ====="
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-"Plugin 'vim-scripts/mayansmoke'
 Plugin 'luochen1990/rainbow'
-"Plugin 'Lokaltog/vim-powerline'
+Plugin 'Lokaltog/vim-powerline'
 Plugin 'jonathanfilip/vim-lucius'
-Plugin 'morhetz/gruvbox'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'scrooloose/syntastic'
+
+"Python plugin
+" Plugin 'davidhalter/jedi-vim'
+
+"Syntax check
+" Plugin 'scrooloose/syntastic'
+
+"Nerd Tree ...
 Plugin 'scrooloose/nerdtree'
 
-Plugin 'bling/vim-airline'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'mileszs/ack.vim'
+" Plugin 'bling/vim-airline'
+
+"Markdown support
+" Plugin 'tpope/vim-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+"Plugin 'airblade/vim-gitgutter'
+
+"Plugin 'mileszs/ack.vim'
+
+"comment code 
 Plugin 'tomtom/tcomment_vim'
 "Ag search " 
 Plugin 'rking/ag.vim'
-Plugin 'marijnh/tern_for_vim'
+
+" Javascript must have 
+" Plugin 'marijnh/tern_for_vim'
 "Rails support
-Plugin 'tpope/vim-rails'
-"Javascript beautifier
+" Plugin 'tpope/vim-rails'
+"Javascript beautifier ( need both )
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
+" Plugin 'hallettj/jslint.vim'
 
+
+" requirement for js-beautify 
+" Plugin 'michalliu/jsruntime.vim'
+" Plugin 'michalliu/jsoncodecs.vim'
+
+"beautify code
+" Plugin 'michalliu/sourcebeautify.vim'
 "Javascript looks nice 
 Plugin 'jelera/vim-javascript-syntax'
 
@@ -66,29 +91,50 @@ Plugin 'Raimondi/delimitMate'
 
 "Colorscheme
 Plugin 'Lokaltog/vim-distinguished'
+Plugin 'vim-scripts/mayansmoke'
+Plugin 'morhetz/gruvbox'
+Plugin 'junegunn/seoul256.vim'
+"solarised 
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'whatyouhide/vim-gotham'
+
+
+"html folding and auto complete tags
+Plugin 'sukima/xmledit'
 
 "indent guides
-" Plugin 'Yggdroot/indentLine'
+"Plugin 'Yggdroot/indentLine'
 
-Plugin 'othree/html5.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
+"Plugin 'othree/html5.vim'
+"Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'garbas/vim-snipmate'
+"Plugin 'honza/vim-snippets'
 
 
 " Easy motion to navigate like vimperator 
-Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'Lokaltog/vim-easymotion'
 
 "Coffee script support
-Plugin 'kchmck/vim-coffee-script'
+" Plugin 'kchmck/vim-coffee-script'
 
 "Jade support
-Plugin 'digitaltoad/vim-jade'
+" Plugin 'digitaltoad/vim-jade'
+
+"Go support 
+" Plugin 'fatih/vim-go'
 
 " Use [ and ] to perform varios actions 
-Plugin 'tpope/vim-unimpaired'
+"Plugin 'tpope/vim-unimpaired'
 
+"Graphical Undo
+"Plugin 'sjl/gundo.vim'
+
+"Hound for code search
+"Plugin 'urthbound/hound.vim'
+
+"Require for Hound , look above
+"Plugin 'mattn/webapi-vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -128,8 +174,22 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 set t_Co=256
 set background=dark
+" set background=light
 " colorscheme gruvbox
-colorscheme distinguished
+colorscheme gotham256
+" colorscheme distinguished
+" colorscheme solarized
+" let g:solarized_termcolors=256
+" colorscheme mayansmoke
+
+" seoul256 (dark):
+"   Range:   233 (darkest) ~ 239 (lightest)
+"   Default: 237
+" seoul256 (light):
+"   Range:   252 (darkest) ~ 256 (lightest)
+"   Default: 253
+" let g:seoul256_background = 235
+" colo seoul256
 
 
 set hlsearch
@@ -140,6 +200,7 @@ noremap <silent> <C-l> :nohl<CR><C-l>
 vnoremap <silent> <C-l> :nohl<CR><C-l>
 inoremap <silent> <C-l> :nohl<CR><C-l>
 
+set relativenumber
 set number
 syntax on
 autocmd! bufwritepost .vimrc source %
@@ -166,9 +227,9 @@ set fo-=t
 set colorcolumn=80
 highlight ColorColumn ctermbg=233
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set shiftround
 set expandtab
 
@@ -189,11 +250,8 @@ set hidden
 nnoremap <leader>q :bd<CR>
 
 match Error /\s\+$/
-inoremap <leader># #{}<ESC>i
-nnoremap <leader>d ologger.debug "============ line no : <C-r>=line('.')<CR> ============="<ESC>T i
 nnoremap <leader>n :NERDTreeToggle<CR>
 :let g:html_indent_inctags = "html,body,head,tbody,td,th,tb,div"
-set tabstop=2 shiftwidth=2 expandtab
 
 
 "jsbeautify
@@ -202,12 +260,17 @@ map <c-f> :call JsBeautify()<cr>
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " for html
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType jsp noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+" autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+" autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+" autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+" autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" autocmd FileType jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
+" autocmd FileType coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2
 "adds an enter if you are in between {} 
 imap <C-c> <CR><Esc>O
 
@@ -222,3 +285,41 @@ set foldlevel=1         "this is just what i use
 " `zo` - opens
 " `zR` - open all
 " `zM` - close all
+" let g:Powerline_symbols = 'fancy'
+" let g:airline_powerline_fonts = 1
+set fillchars+=stl:\ ,stlnc:\
+" set term=xterm-256color
+if has("gui_running")
+    "    let s:uname = system("uname")
+    "    if s:uname == "Darwin\n"
+    " set guifont=Source\ Code\ Pro\ for\ Powerline\ Semi-Bold\ 9
+    set guioptions=
+    colorscheme solarized
+
+endif
+" endif" set termencoding=utf-8
+
+" au BufReadPost *.jsp set syntax=html
+" let g:indentLine_color_term = 239
+" let g:indentLine_char = '│'
+" " modify selected text using combining diacritics
+command! -range -nargs=0 Overline        call s:CombineSelection(<line1>, <line2>, '0305')
+command! -range -nargs=0 Underline       call s:CombineSelection(<line1>, <line2>, '0332')
+command! -range -nargs=0 DoubleUnderline call s:CombineSelection(<line1>, <line2>, '0333')
+command! -range -nargs=0 Strikethrough   call s:CombineSelection(<line1>, <line2>, '0336')
+
+function! s:CombineSelection(line1, line2, cp)
+    execute 'let char = "\u'.a:cp.'"'
+    execute a:line1.','.a:line2.'s/\%V[^[:cntrl:]]/&'.char.'/ge'
+endfunction
+
+nnoremap <leader>[ <ESC>^i[ ] <ESC>
+nnoremap <silent> <leader><CR> :.s/\[ \]/\[✔\]/<CR> :nohl <CR><C-l>
+nnoremap <silent> <leader><space> :.s/\[✔\]/\[ \]/<CR> :nohl <CR><C-l>
+nnoremap <silent> <leader>v $a @vamshi<ESC>
+" let g:hound_base_url = "10.23.83.190"
+"let g:hound_port = "6080"
+" let g:hound_repos = "dashboard-calendar-ui"
+let g:ctrlp_custom_ignore = 'node_modules\|dist\|git\|bower_components'
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let $JS_CMD='node'

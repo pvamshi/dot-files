@@ -1,0 +1,19 @@
+search projec
+lj
+search config
+help
+deleteall
+open_with h
+open_with k
+delete
+touch termite/
+help create
+mkdir termite
+touch config
+search .config
+search gtk
+touch settings.ini
+open_with vim
+find ont
+open_with 
+open_with mplayer

@@ -1,0 +1,67 @@
+Xft.dpi: 96
+Xcursor.theme: Vanilla-DMZ
+
+! Specifies the terminal type name to be set in the TERM environment variable
+urxvt.termName:             rxvt-256color
+
+
+urxvt*font:             xft:monospace:pixelsize=12
+urxvt*borderLess:	false
+urxvt*externalBorder:	0
+urxvt*internalBorder:	2
+urxvt*scrollBar:	false
+!urxvt*depth:		32
+urxvt*background:	rgba:0000/0000/0000/cccc
+urxvt*foreground:	#c8c8c8
+urxvt*cursorColor:	#ffffff
+urxvt*cursorColor2:	#000000
+urxvt*cursorBlink:	false
+urxvt*inheritPixmap:	false
+urxvt*termName:		rxvt-unicode
+urxvt*saveLines:	1000
+urxvt*scrollTtyOutput:	false
+urxvt*scrollTtyKeypress:	true
+urxvt*mouseWheelScrollPage:	false
+urxvt*cutchars:                `'",;@&*=|?()<>[]{}
+URxvt.urlLauncher:      firefox
+
+*.foreground:   #98d1ce
+*.background:   #0a0f14
+*.cursorColor:  #98d1ce
+
+*.color0:       #0a0f14
+*.color8:       #10151b
+
+*.color1:       #c33027
+*.color9:       #d26939
+
+*.color2:       #26a98b
+*.color10:      #164F71
+! *.color10:      #081f2d
+
+*.color3:       #edb54b
+*.color11:      #245361
+
+*.color4:       #195465
+*.color12:      #0c61fc
+! *.color12:      #093748
+
+*.color5:       #4e5165
+*.color13:      #888ba5
+
+*.color6:       #33859d
+*.color14:      #599caa
+
+*.color7:       #98d1ce
+*.color15:      #d3ebe9
+
+
+
+! Xterm
+Xterm*toolBar: false
+XTerm*faceName: monospace:pixelsize=11
+XTerm*dynamiccolors: true
+xterm*Background: black
+xterm*Foreground: white
+xterm*scrollTtyOutput: false
+xterm*scrollKey: true
