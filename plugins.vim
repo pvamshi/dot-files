@@ -87,5 +87,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'mhinz/vim-signify'
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'morhetz/gruvbox'
 call plug#end()
 
