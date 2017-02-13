@@ -1,7 +1,6 @@
 dot-files
 =========
 
-In case you wish to use this ( Seriously ?? you can search for some awesome configurations , not this one definitely :) )
 
 1) clone 
 
