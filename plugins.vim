@@ -33,7 +33,7 @@ Plug 'ervandew/supertab' " Perform all your vim insert mode completions with Tab
 "Plug 'tpope/vim-vinegar'
 "Plug 'AndrewRadev/splitjoin.vim' " single/multi line code handler: gS - split one line into multiple, gJ - combine multiple lines into one
 Plug 'vim-scripts/matchit.zip' " extended % matching
-Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
+Plug 'tpope/vim-sleuth' " detect indent style ()
 Plug 'sickill/vim-pasta' " context-aware pasting
 "Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } " distraction-free writing
 "Plug 'junegunn/limelight.vim', { 'on': 'Limelight' } " focus tool. Good for presentating with vim
@@ -81,7 +81,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' } " interactive command execution in v
 "Plug 'timcharper/textile.vim', { 'for': 'textile' } " textile support
 "Plug 'tclem/vim-arduino' " arduino support - compile wihtout needing to open the arduino IDE
 
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } 
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'mhartington/deoplete-typescript'
 Plug 'Valloric/YouCompleteMe'
 Plug 'mhinz/vim-signify'
@@ -103,5 +103,11 @@ Plug 'moll/vim-bbye'
 Plug 'justinmk/vim-dirvish'
 
 Plug 'junegunn/gv.vim'
+Plug 'wellle/targets.vim'
+" Track the engine.
+Plug 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
 call plug#end()
 

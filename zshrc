@@ -79,7 +79,6 @@ antigen bundle common-aliases
 ## Node Plugins
 antigen bundle coffee
 antigen bundle node
-antigen bundle npm
 #
 ## Python Plugins
 antigen bundle pip
@@ -129,7 +128,7 @@ antigen bundle mercurial
 
 # # Preferred editor for local and remote sessions
 #if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 #else
  # export EDITOR='MacVim'
 #fi
@@ -155,14 +154,22 @@ export MAVEN_OPTS="-Xms256m -Xmx1024m -XX:PermSize=64m -XX:MaxPermSize=1024m -Dj
 # Set architecture flags
 export ARCHFLAGS="-arch x86_64"
 # Ensure user-installed binaries take precedence
-export JAVA_HOME=/home/vamshi/installations/java/jdk1.8.0_60
-export MVN_HOME=/home/vamshi/installations/programming/apache/apache-maven-3.3.3
+#export JAVA_HOME=/home/vamshi/installations/java/jdk1.8.0_60
+export MVN_HOME=/home/vamshi/installers/apache-maven-3.3.9
+export ANT_HOME=/home/vamshi/installers/apache-ant-1.9.7
 export CATALINA_HOME=/home/vamshi/installations/programming/apache/apache-tomcat-7.0.62
-export PATH=/usr/local/bin:~/bin:$PATH:$JAVA_HOME/bin:$MVN_HOME/bin:CATALINA_HOME/bin:
+export PATH=/usr/local/bin:~/bin:$PATH:$JAVA_HOME/bin:$MVN_HOME/bin:CATALINA_HOME/bin:$ANT_HOME/bin:
+
+#NODE installation
+export PATH=$PATH:/home/vamshi/installers/node-v6.9.1-linux-x64/bin
+export PATH=$PATH:/home/vamshi/eclipse/jee-neon/eclipse
+export JBOSS_HOME=/home/vamshi/Downloads/syncron-wildfly-9.0.2.final/jboss-as
+
 # Load .bashrc if it exists
 #test -f ~/.zshrc && source ~/.zshrc
 growl() { echo -e $'\e]9;'${1}'\007' ; return ; }
-alias g="echo $'\e]9; Task Executed \007'"
+# alias g="echo $'\e]9; Task Executed \007'"
+alias g='git'
 alias kareo='cd /Users/vamshi/source_code/ehr_home/ehr-dev-tools/; source ./setenv.sh; cd -'
 alias rdev='source /Users/vamshi/.rvm/scripts/rvm'
 hgdiff() {
@@ -179,8 +186,11 @@ alias syncdevimages='rsync -a ~/source_code/ehr_home/ehr-dev-tools/services/tomc
 alias syncwebjs='rsync -a ~/source_code/ehr_home/ehr-webapp/src/main/webapp/js/ ~/source_code/ehr_home/ehr-dev-tools/services/tomcat/web/apps/webapps/EhrWebApp/js'
 alias syncdevjs='rsync -a ~/source_code/ehr_home/ehr-dev-tools/services/tomcat/web/apps/webapps/EhrWebApp/js/  ~/source_code/ehr_home/ehr-webapp/src/main/webapp/js'
 alias mpl='mplayer -shuffle -vo null'
-alias cat='pygmentize -g'
+alias ca='pygmentize -g'
 alias rg='ranger'
+alias vim='nvim'
+alias vi='vim'
+alias t='vim ~/todo.txt'
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable hg git bzr svn
 precmd() {
@@ -191,6 +201,17 @@ precmd() {
 alias a='ag -i --no-numbers '
 # export JAVA_HOME="/Users/vamshi/source_code/ehr_home/ehr-dev-tools/tools/jdk1.7"
 #set local timezone to US for all commands 
-export TZ=America/Los_Angeles
+#export TZ=America/Los_Angeles
 TERM=xterm
 # export PATH=$PATH:/home/vamshi/installations/node-v4.1.0-linux-arm64/bin
+export PATH=$PATH:/home/vamshi/installers/node-v6.9.1-linux-x64/bin
+export PATH=$PATH:~/.config/bspwm/bin/
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export LC_ALL=en_US.utf-8 
+export LANG="$LC_ALL" 
+export EAP_HOME='/home/vamshi/installers/EAP-7.0.0'
+if [ $TERMINIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+

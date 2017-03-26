@@ -86,10 +86,14 @@ set shiftround              " round indent to a multiple of 'shiftwidth'
 set completeopt+=longest
 
 " code folding settings
-set foldmethod=syntax       " fold based on indent
+set foldmethod=syntax       "fold based on indent
 set foldnestmax=10          " deepest fold is 10 levels
-set nofoldenable            " don't fold by default
+" set nofoldenable            " don't fold by default
 set foldlevel=1
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> zf
 
 set clipboard=unnamed
 
@@ -528,3 +532,13 @@ if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
+"Exits vim when all buffers are closed and NerdTree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
