@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 " colorschemes
 Plug 'dracula/vim'
 Plug 'joshdick/onedark.vim'
+Plug 'jacoborus/tender.vim'
 
 " utilities
 " Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder, mapped to <leader>t
@@ -109,5 +110,10 @@ Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
+Plug 'mklabs/split-term.vim'
+
+" Plug 'artur-shaik/vim-javacomplete2'
+Plug 'airblade/vim-rooter'
+
 call plug#end()
 

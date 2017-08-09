@@ -27,15 +27,32 @@ let g:python3_host_prog = '/usr/bin/python3'
 " switch cursor to line when in insert mode, and block when not
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
 if &term =~ '256color'
     " disable background color erase
     set t_ut=
 endif
 
 " enable 24 bit color support if supported
-if (empty($TMUX) && has("termguicolors"))
-    set termguicolors
-endif
+" if (empty($TMUX) && has("termguicolors"))
+"     set termguicolors
+" endif
 
 " let g:onedark_termcolors=16
 " let g:onedark_terminal_italics=1
@@ -45,6 +62,7 @@ syntax on
 " colorscheme onedark         " Set the colorscheme
 set background=dark
 colorscheme gruvbox
+" colorscheme tender
 
 " make the highlighting of tabs and other non-text less annoying
 " highlight SpecialKey ctermbg=none ctermfg=8
@@ -339,6 +357,7 @@ let g:airline_powerline_fonts=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='onedark'
+" let g:airline_theme = 'tender'
 let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
 let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
@@ -356,7 +375,7 @@ let g:SuperTabCrMapping = 0
 autocmd FileType typescript nmap <buffer> <Leader>x : <C-u>echo tsuquyomi#hint()<CR>
 
 autocmd FileType typescript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-let g:UltiSnipsExpandTrigger="<C-j>"
+" let g:UltiSnipsExpandTrigger="<C-j>"
 " inoremap <expr><TAB>  pumvisible() ? "\<C-x><C-o>" : "\<TAB>"
 
 " let g:neomake_warning_sign = {
@@ -536,9 +555,24 @@ let g:ycm_semantic_triggers['typescript'] = ['.']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<s-tab>"
+" let g:UltiSnipsExpandTrigger="<enter>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir="~/.config/nvim/snippets"
+filetype indent on
